@@ -1,0 +1,25 @@
+language: go
+
+runtime:
+  nodePool: dynamic__x86_64__Ubuntu_14_04__c4_large
+  
+go:
+  - 1.10.5
+  - 1.11.2
+
+build:
+  pre_ci_boot:
+    image_name: drydock/u14golall
+    image_tag: master
+    pull: true
+    
+  ci:
+    - go version    
+    - docker pull shippabledocker/sample_node_pvt:ecr
+    
+integrations:
+    
+  hub:
+ #Docker integration
+    - integrationName: ship-docker
+      type: dockerRegistryLogin
