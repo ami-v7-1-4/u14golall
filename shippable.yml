@@ -10,16 +10,8 @@ go:
 build:
   pre_ci_boot:
     image_name: drydock/u14golall
-    image_tag: master
+    image_tag: v7.1.4
     pull: true
     
   ci:
-    - go version    
-    - docker pull shippabledocker/sample_node_pvt:ecr
-    
-integrations:
-    
-  hub:
- #Docker integration
-    - integrationName: ship-docker
-      type: dockerRegistryLogin
+    - go version
